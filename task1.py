@@ -27,6 +27,13 @@ sortMe = {
 keys = []
 values = []
 
+for i in sortMe:
+    keys.append(i)
+    keys.sort()
+
+for i in sortMe:
+    values.append(sortMe[i])
+    values.sort()
 
 
 assert keys == [1, 2, 4, 6, 9, 10, 11, 13, 14, 15, 17, 18, 20]
