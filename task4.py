@@ -11,3 +11,41 @@ Possible extensions:
 #get -- aliases: g
 #drop -- aliases: dr, d
 #show inventory -- aliases: sh, inv,
+
+inventory = {
+    'longsword' : 'a longer sword',
+    'plate mail' : 'made of the finest china'
+}
+
+def getItem(itemName, itemStats=''):
+    inventory[itemName] = itemStats
+    start()
+
+def dropItem(itemName):
+    try:
+        del inventory[itemName]
+    except:
+        print(f'no item {itemName} found')
+    start()
+
+def showInventory():
+    print('------------------------------')
+    for i in inventory:
+        print(f'{i}  --  {inventory[i]}')
+    print('------------------------------')
+    start()
+
+def help():
+    print('-----------------------')
+    print('commands')
+    print('''
+        get        --  give yourself an item             --  aliases: get, g
+        drop       --  drop an item from your inventory  --  aliases: drop, dr
+        inventory  --  displays your current inventory   --  aliases: inventory, inv
+    ''')
+    print('-----------------------')
+    start()
+
+def start():
+    input('enter command ("help" for commands help):  ')
+    
