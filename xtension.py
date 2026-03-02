@@ -36,3 +36,27 @@ You have:
  3 wood
  >
 """
+
+# looks like the difference from the last one is this will have multiples of items
+inventory ={
+    'food' : 0,
+    'water' : 0,
+    'rope' : 0,
+    'torch' : 0,
+    'sack' : 0,
+    'wood' : 0,
+    'iron' : 0,
+    'steel' : 0,
+    'ginger' : 0,
+    'garlic' : 0,
+    'fish' : 0,
+    'stone' : 0,
+    'wool' : 0
+}
+
+def showInventory():
+    print('You have:')
+    for i in inventory:
+        if inventory[i] > 0:
+            print(f' {inventory[i]} {i}')
+showInventory()

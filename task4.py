@@ -19,33 +19,52 @@ inventory = {
 
 def getItem(itemName, itemStats=''):
     inventory[itemName] = itemStats
-    start()
+    #start()
 
 def dropItem(itemName):
     try:
         del inventory[itemName]
     except:
         print(f'no item {itemName} found')
-    start()
+    #start()
 
 def showInventory():
     print('------------------------------')
     for i in inventory:
         print(f'{i}  --  {inventory[i]}')
     print('------------------------------')
-    start()
+    #start()
 
 def help():
     print('-----------------------')
-    print('commands')
+    print('commands:')
     print('''
         get        --  give yourself an item             --  aliases: get, g
         drop       --  drop an item from your inventory  --  aliases: drop, dr
         inventory  --  displays your current inventory   --  aliases: inventory, inv
+        end        --  quit the program
     ''')
     print('-----------------------')
-    start()
+    #start()
 
 def start():
-    input('enter command ("help" for commands help):  ')
-    
+    while True:
+        command = input('enter command:  ').split(' ', 2)
+        if 'help' in command[0]:
+            help()
+        elif 'get' in command[0] or 'g' in command[0]:
+            if command[1] == '':
+                print('an item to be gotten up must be specified')
+            else:
+                getItem(command[1],command[2])
+        elif 'drop' in command[0] or 'dr' in command[0]:
+            if command[1] == '':
+                print('an item to be dropped must be specified')
+            else: 
+                dropItem(command[1])
+        elif 'inventory' in command[0] or 'inv' in command[0]:
+            showInventory()
+        elif 'end' in command[0]:
+            break
+
+start()
