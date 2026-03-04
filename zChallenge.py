@@ -12,3 +12,4 @@ for i in range(40):
 print(x)
 
 
+# this program creates an empty list and adds 40 numbers between 1 and 10 with a 50% chance of adding another number between 0.1 and 1.0
