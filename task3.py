@@ -25,10 +25,9 @@ student['birthday'] = input('enter your birthday: ')
 student['grade'] = input('enter your grade: ')
 student['email'] = input('enter your email: ')
 
-loop = True
-while loop == True:
+while True:
     x = input('enter a key: ')
     if x in student:
         print(student[x])
     if x == 'quit':
-        loop = False
+        break
